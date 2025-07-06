@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boards & Cakes - Tablas Gourmet y Tartas Personalizadas</title>
+    <meta name="description" content="Descubre nuestras exquisitas tablas de quesos y charcutería, y tartas personalizadas diseñadas para endulzar tus ocasiones más especiales.">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Favicon (placeholder) -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">Boards & Cakes</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="active">Inicio</a></li>
+                    <li><a href="tartas-personalizadas.html">Tartas Personalizadas</a></li>
+                    <li><a href="tablas-gourmet.html">Tablas Gourmet</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="preguntas-frecuentes.html">FAQs</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Momentos Deliciosos, Creaciones Inolvidables</h1>
+                    <p>Descubre nuestras exquisitas tablas de quesos y charcutería, y tartas personalizadas diseñadas para endulzar tus ocasiones más especiales.</p>
+                    <a href="#productos-destacados" class="button button-primary">Descubre Nuestros Productos</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="productos-destacados" class="container section-padding">
+            <!-- Aquí irán los accesos directos a Tartas y Tablas -->
+            <h2 style="text-align:center; margin-top: 20px; margin-bottom: 40px;">Nuestras Especialidades</h2>
+            <!-- Placeholder for featured products section -->
+            <div style="display: flex; justify-content: space-around; gap: 20px; flex-wrap: wrap;">
+                <div style="border: 1px solid var(--color-accent-secondary); padding: 20px; text-align: center; width: 300px; background-color: var(--color-white); border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <img src="images/tarta-placeholder.jpg" alt="Tartas Personalizadas" style="width:100%; height: 200px; object-fit: cover; border-radius: 4px; margin-bottom: 15px;">
+                    <h3>Tartas Personalizadas</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 15px;">Dulces sueños hechos realidad para cada celebración.</p>
+                    <a href="tartas-personalizadas.html" class="button button-primary" style="background-color: var(--color-accent-secondary); color: var(--color-text-main);">Ver Tartas</a>
+                </div>
+                <div style="border: 1px solid var(--color-accent-secondary); padding: 20px; text-align: center; width: 300px; background-color: var(--color-white); border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <img src="images/tabla-placeholder.jpg" alt="Tablas Gourmet" style="width:100%; height: 200px; object-fit: cover; border-radius: 4px; margin-bottom: 15px;">
+                    <h3>Tablas Gourmet</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 15px;">Un festín de sabores selectos para compartir y disfrutar.</p>
+                    <a href="tablas-gourmet.html" class="button button-primary" style="background-color: var(--color-accent-secondary); color: var(--color-text-main);">Ver Tablas</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about-us" class="container section-padding" style="background-color: var(--color-bg-secondary; padding-top: 40px; padding-bottom: 40px; border-radius: 8px; margin-top: 40px; margin-bottom: 40px;">
+            <div style="text-align: center; max-width: 800px; margin: auto;">
+                 <h2>Nuestra Esencia: Sabor y Elegancia</h2>
+                 <p>En Boards & Cakes, transformamos ingredientes frescos y seleccionados en experiencias gastronómicas únicas. Nos dedicamos a crear tablas gourmet que deleitan la vista y el paladar, y tartas personalizadas que se convierten en el centro de toda celebración. Cada creación es un reflejo de nuestra pasión por la excelencia y el buen gusto, pensada para compartir y disfrutar.</p>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="tartas-personalizadas.html">Tartas</a></li>
+                    <li><a href="tablas-gourmet.html">Tablas</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
+                    <li><a href="terminos-condiciones.html">Términos y Condiciones</a></li>
+                </ul>
+            </nav>
+            <div class="footer-social">
+                <ul>
+                    <li><a href="https://instagram.com/boardsandcakes.es" target="_blank" aria-label="Instagram Boards & Cakes"><img src="images/instagram-icon.svg" alt="Instagram"></a></li>
+                    <!-- Añadir más redes si es necesario -->
+                </ul>
+            </div>
+            <p class="copyright">&copy; <span id="current-year"></span> Boards & Cakes. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Pequeño script para el año actual en el footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+    <!-- <script src="js/main.js"></script> -->
+</body>
+</html>
