@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablas Gourmet Personalizadas - Boards & Cakes</title>
+    <meta name="description" content="Configura tu tabla gourmet ideal: quesos, charcutería, mixtas. Elige tamaño y acompañantes para una experiencia única.">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/tartas.css"> <!-- Reutilizamos tartas.css por similitud, podríamos crear tablas.css si hay muchas diferencias -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <style>
+        /* Estilos específicos para tablas gourmet si fueran necesarios y no están en tartas.css */
+        /* Por ahora, la estructura es muy similar y tartas.css debería cubrir bastante bien */
+        .board-types-gallery .cake-style-item h3 { /* Adaptar nombre de clase si es necesario */
+            color: var(--color-accent-primary); /* Asegurar consistencia */
+        }
+        #board-options-quesos, #board-options-charcuteria {
+            padding: 10px;
+            border: 1px dashed var(--color-accent-secondary);
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">Boards & Cakes</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="tartas-personalizadas.html">Tartas Personalizadas</a></li>
+                    <li><a href="tablas-gourmet.html" class="active">Tablas Gourmet</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="preguntas-frecuentes.html">FAQs</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Tablas Gourmet</h1>
+                <p>Descubre nuestra cuidada selección de tablas gourmet, diseñadas para sorprender y deleitar en cualquier ocasión. Perfectas para picar, regalar o convertir cualquier momento en especial.</p>
+            </div>
+        </section>
+
+        <section class="container">
+            <h2 style="text-align: center; font-family: var(--font-primary); margin-bottom: calc(var(--spacing-unit) * 3); font-size: 1.8rem;">Elige un Tipo de Tabla</h2>
+            <div class="cake-styles-gallery board-types-gallery" id="board-types-gallery">
+                <!-- Los tipos de tabla se cargarán aquí por JS -->
+            </div>
+        </section>
+
+        <section class="container section-padding">
+            <div class="customization-form-area">
+                <form id="board-customization-form" class="cake-form"> <!-- Reutilizamos clase .cake-form -->
+                    <h2>Configura Tu Tabla Ideal</h2>
+
+                    <div class="form-group">
+                        <label for="board-type">1. Tipo de Tabla Seleccionado:</label>
+                        <select id="board-type" name="board-type" required>
+                            <option value="">Selecciona un tipo...</option>
+                            <!-- Opciones cargadas por JS -->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="board-size">2. Selecciona el Tamaño:</label>
+                        <select id="board-size" name="board-size" required>
+                            <option value="">Selecciona un tamaño...</option>
+                            <!-- Opciones cargadas por JS -->
+                        </select>
+                    </div>
+
+                    <div id="board-options-quesos" class="form-group" style="display: none;">
+                        <label>3. Selección de Quesos (elige tus favoritos):</label>
+                        <div id="board-cheeses" class="checkbox-group">
+                            <!-- Checkboxes de quesos cargados por JS -->
+                        </div>
+                    </div>
+
+                    <div id="board-options-charcuteria" class="form-group" style="display: none;">
+                        <label>4. Selección de Charcutería (elige tus favoritos):</label>
+                        <div id="board-charcuterie" class="checkbox-group">
+                            <!-- Checkboxes de charcutería cargados por JS -->
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>5. Acompañantes (selecciona varios si deseas):</label>
+                        <div id="board-accompaniments" class="checkbox-group">
+                            <!-- Checkboxes de acompañantes cargados por JS -->
+                        </div>
+                    </div>
+
+                     <div class="form-group">
+                        <label for="board-notes">Notas Adicionales o Preferencias Especiales:</label>
+                        <textarea id="board-notes" name="board-notes" placeholder="Indica aquí si tienes alguna preferencia muy específica, alguna alergia a considerar, o si la tabla es para regalo, etc."></textarea>
+                    </div>
+
+                </form>
+
+                <aside class="order-summary" id="order-summary-board">
+                    <h3>Resumen de Tu Tabla</h3>
+                    <p><strong>Tipo:</strong> <span id="summary-board-type">N/A</span></p>
+                    <p><strong>Tamaño:</strong> <span id="summary-board-size">N/A</span></p>
+
+                    <div id="summary-board-cheeses-container" style="display: none;">
+                        <p><strong>Quesos Seleccionados:</strong></p>
+                        <ul id="summary-board-cheeses">
+                            <li>Ninguno</li>
+                        </ul>
+                    </div>
+
+                    <div id="summary-board-charcuterie-container" style="display: none;">
+                        <p><strong>Charcutería Seleccionada:</strong></p>
+                        <ul id="summary-board-charcuterie">
+                            <li>Ninguna</li>
+                        </ul>
+                    </div>
+
+                    <p><strong>Acompañantes:</strong></p>
+                    <ul id="summary-board-accompaniments">
+                        <li>Ninguno</li>
+                    </ul>
+                    <p><strong>Notas Adicionales:</strong> <span id="summary-board-notes">N/A</span></p>
+
+                    <button type="button" id="submit-board-order" class="button button-primary submit-order-button">Solicitar Presupuesto por WhatsApp</button>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <nav class="footer-nav">
+                 <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="tartas-personalizadas.html">Tartas</a></li>
+                    <li><a href="tablas-gourmet.html">Tablas</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
+                    <li><a href="terminos-condiciones.html">Términos y Condiciones</a></li>
+                </ul>
+            </nav>
+            <div class="footer-social">
+                <ul>
+                    <li><a href="https://instagram.com/boardsandcakes.es" target="_blank" aria-label="Instagram Boards & Cakes"><img src="images/instagram-icon.svg" alt="Instagram"></a></li>
+                </ul>
+            </div>
+            <p class="copyright">&copy; <span id="current-year">2024</span> Boards & Cakes. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script>
+        const yearSpan = document.getElementById('current-year');
+        if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+        }
+    </script>
+    <script src="js/tablas.js"></script>
+
+    <a href="https://wa.me/34000000000" class="whatsapp-flotante" target="_blank" aria-label="Contactar por WhatsApp">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" class="whatsapp-icon">
+            <path fill="currentColor" d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447c-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335c-.143-.372-.214-.487-.6-.487c-.187 0-.36-.044-.53-.044c-.302 0-.53.115-.746.315c-.688.645-1.032 1.318-1.06 2.264c-.044 1.147.687 2.212.964 2.455c.276.246.552.515.93.82c.49.402 1.21.747 1.924 1.032c.817.329 1.5.329 1.924.426c.617.143 1.032.028 1.428-.387c.444-.444.652-.817.964-1.147c.214-.26.426-.24.6-.164c.174.08.943.444 1.187.56c.244.115.372.143.426.044c.056-.1.044-.402-.03-.66c-.073-.244-.187-.387-.357-.516c-.17-.128-.34-.143-.487-.143m-2.976 8.98c-3.33 0-6.033-2.703-6.033-6.032s2.703-6.032 6.033-6.032c3.329 0 6.032 2.703 6.032 6.032S19.46 26.185 16.134 26.185m0-13.265c-4.002 0-7.232 3.23-7.232 7.232s3.23 7.232 7.232 7.232c4.002 0 7.232-3.23 7.232-7.232S20.136 12.92 16.134 12.92m0-1.017c4.566 0 8.25 3.684 8.25 8.25S20.7 29.435 16.133 29.435S7.883 25.75 7.883 21.183s3.684-8.25 8.25-8.25Z"></path>
+        </svg>
+    </a>
+</body>
+</html>

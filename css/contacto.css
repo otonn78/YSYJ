@@ -1,0 +1,178 @@
+/* css/contacto.css - Estilos para la página de Contacto */
+
+.contact-layout {
+    display: flex;
+    flex-wrap: wrap; /* Para que se apilen en móvil */
+    gap: calc(var(--spacing-unit) * 5); /* Espacio entre formulario e info */
+    align-items: flex-start; /* Alinear items al inicio si tienen alturas diferentes */
+}
+
+.contact-form-container {
+    flex: 2; /* El formulario ocupa más espacio */
+    min-width: 300px; /* Ancho mínimo */
+    background-color: var(--color-white);
+    padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 4);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+}
+
+.contact-form-container h2,
+.contact-info-container h2 {
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    color: var(--color-text-main);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    text-align: center;
+}
+
+.contact-info-container {
+    flex: 1; /* La info de contacto ocupa menos */
+    min-width: 280px;
+    background-color: var(--color-bg-secondary);
+    padding: calc(var(--spacing-unit) * 3);
+    border-radius: 8px;
+}
+
+.contact-info-container p {
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.contact-info-container ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+.contact-info-container ul li {
+    margin-bottom: var(--spacing-unit);
+    font-size: 1rem;
+    display: flex; /* Para alinear iconos si se añaden */
+    align-items: center;
+}
+
+.contact-info-container ul li strong {
+    margin-right: calc(var(--spacing-unit) * 0.5);
+    color: var(--color-text-main);
+}
+.contact-info-container ul li a {
+    color: var(--color-accent-primary);
+    text-decoration: none;
+    word-break: break-all; /* Para emails largos */
+}
+.contact-info-container ul li a:hover {
+    text-decoration: underline;
+}
+
+
+/* Estilos del formulario (reutilizando y adaptando de tartas.css si es necesario) */
+#contact-form .form-group {
+    margin-bottom: calc(var(--spacing-unit) * 2.5);
+}
+
+#contact-form .form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: calc(var(--spacing-unit) * 0.75);
+    color: var(--color-text-main);
+}
+
+#contact-form .form-group input[type="text"],
+#contact-form .form-group input[type="email"],
+#contact-form .form-group input[type="tel"],
+#contact-form .form-group textarea {
+    width: 100%;
+    padding: calc(var(--spacing-unit) * 1.5);
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contact-form .form-group input[type="text"]:focus,
+#contact-form .form-group input[type="email"]:focus,
+#contact-form .form-group input[type="tel"]:focus,
+#contact-form .form-group textarea:focus {
+    border-color: var(--color-accent-primary);
+    box-shadow: 0 0 0 3px rgba(176, 141, 87, 0.25); /* Usando valor fijo para el color de acento en RGBa */
+    outline: none;
+}
+
+#contact-form .form-group textarea {
+    min-height: 150px; /* Un poco más alto para el mensaje */
+    resize: vertical;
+}
+
+#contact-form .required-asterisk {
+    color: var(--color-accent-primary); /* Destacar asterisco */
+    margin-left: 2px;
+}
+
+#contact-form .form-error-message {
+    display: block;
+    color: #D8000C; /* Un color rojo para errores */
+    font-size: 0.85rem;
+    margin-top: calc(var(--spacing-unit) * 0.5);
+    /* Oculto por defecto, se muestra con JS */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+#contact-form .form-group.error .form-error-message {
+    visibility: visible;
+    opacity: 1;
+}
+#contact-form .form-group.error input,
+#contact-form .form-group.error textarea {
+    border-color: #D8000C;
+}
+
+
+#submit-contact-form {
+    width: 100%;
+    padding: calc(var(--spacing-unit) * 1.75);
+    font-size: 1.1rem;
+}
+
+#form-status-message {
+    margin-top: calc(var(--spacing-unit) * 2);
+    padding: calc(var(--spacing-unit) * 1.5);
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+}
+
+#form-status-message.success {
+    background-color: #DFF2BF; /* Verde claro para éxito */
+    color: #4F8A10;
+    border: 1px solid #BDE09A;
+}
+
+#form-status-message.error {
+    background-color: #FFD2D2; /* Rojo claro para error general del form */
+    color: #D8000C;
+    border: 1px solid #FFB8B8;
+}
+
+
+/* Responsive para la página de contacto */
+@media (max-width: 992px) {
+    .contact-layout {
+        flex-direction: column; /* Apilar en tablets */
+    }
+    .contact-form-container,
+    .contact-info-container {
+        width: 100%; /* Ocupar todo el ancho al apilarse */
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-form-container h2,
+    .contact-info-container h2 {
+        font-size: 1.8rem;
+    }
+     .contact-form-container {
+        padding: calc(var(--spacing-unit) * 3);
+    }
+}

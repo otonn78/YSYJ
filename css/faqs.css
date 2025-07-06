@@ -1,0 +1,88 @@
+/* css/faqs.css - Estilos para la página de Preguntas Frecuentes */
+
+.faq-container {
+    max-width: 800px; /* Ancho máximo para mejor legibilidad */
+    margin: 0 auto; /* Centrar el contenedor de FAQs */
+}
+
+.faq-item {
+    background-color: var(--color-white);
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    border: 1px solid var(--color-bg-secondary);
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    overflow: hidden; /* Para que el borde redondeado afecte al contenido */
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: transparent; /* Hereda de .faq-item o se puede poner var(--color-white) */
+    border: none;
+    padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 2.5);
+    text-align: left;
+    font-family: var(--font-secondary);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.faq-question:hover {
+    background-color: var(--color-bg-main); /* Un color de fondo sutil al hacer hover */
+}
+
+.faq-icon {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-accent-primary);
+    transition: transform 0.3s ease;
+    margin-left: var(--spacing-unit); /* Espacio entre texto e icono */
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg); /* Cambia el '+' a una 'x' rotada */
+}
+
+.faq-answer {
+    padding: 0 calc(var(--spacing-unit) * 2.5); /* Padding horizontal igual que la pregunta */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding-top 0.4s ease-out, padding-bottom 0.4s ease-out;
+    background-color: var(--color-white); /* Asegurar fondo si es diferente al item */
+    border-top: 1px solid transparent; /* Borde sutil que aparecerá con el padding */
+}
+
+.faq-item.active .faq-answer {
+    /* max-height se establece en JS para acomodar contenido variable, o un valor grande aquí */
+    /* padding-top y padding-bottom se añaden cuando está activo para dar espacio */
+    padding-top: calc(var(--spacing-unit) * 1.5);
+    padding-bottom: calc(var(--spacing-unit) * 2.5);
+    border-top-color: var(--color-bg-secondary); /* Mostrar el borde */
+}
+
+.faq-answer p {
+    margin-bottom: var(--spacing-unit);
+    line-height: 1.7;
+    font-size: 0.95rem;
+    color: var(--color-text-main);
+    opacity: 0.9;
+}
+
+.faq-answer p:last-child {
+    margin-bottom: 0;
+}
+
+/* Estilos para el page-header (si se quiere mover de inline en HTML) */
+/* Ya está en main.css o tartas.css, pero si se quiere específico:
+.page-header.faq-header { (añadir clase faq-header al HTML)
+    background-color: var(--color-bg-secondary);
+    padding: calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 2);
+    text-align: center;
+    margin-bottom: calc(var(--spacing-unit) * 4);
+    border-radius: 8px;
+}
+*/

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tartas Personalizadas - Boards & Cakes</title>
+    <meta name="description" content="Diseña tu tarta personalizada ideal. Elige estilo, tamaño, sabor, relleno y decoración para tu celebración especial.">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/tartas.css"> <!-- Enlazado el nuevo CSS -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">Boards & Cakes</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="tartas-personalizadas.html" class="active">Tartas Personalizadas</a></li>
+                    <li><a href="tablas-gourmet.html">Tablas Gourmet</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="preguntas-frecuentes.html">FAQs</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header"> <!-- Esta clase ahora se estiliza desde tartas.css -->
+            <div class="container">
+                <h1>Tartas Personalizadas</h1>
+                <p>Nuestras tartas son más que un postre; son una declaración de intenciones, el broche de oro para cualquier evento. Cuéntanos tu idea y la haremos realidad.</p>
+            </div>
+        </section>
+
+        <section class="container">
+            <h2 style="text-align: center; font-family: var(--font-primary); margin-bottom: calc(var(--spacing-unit) * 3); font-size: 1.8rem;">Elige un Estilo para Empezar</h2>
+            <div class="cake-styles-gallery" id="cake-styles-gallery">
+                <!-- Los estilos de tarta se cargarán aquí por JS -->
+            </div>
+        </section>
+
+        <section class="container section-padding">
+            <div class="customization-form-area"> <!-- Esta clase ahora se estiliza desde tartas.css -->
+                <form id="cake-customization-form" class="cake-form"> <!-- Esta clase ahora se estiliza desde tartas.css -->
+                    <h2>Crea Tu Tarta Ideal</h2>
+
+                    <div class="form-group">
+                        <label for="cake-style">1. Estilo Seleccionado:</label>
+                        <select id="cake-style" name="cake-style" required>
+                            <option value="">Selecciona un estilo...</option>
+                            <!-- Opciones cargadas por JS -->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cake-size">2. Selecciona el Tamaño:</label>
+                        <select id="cake-size" name="cake-size" required>
+                            <option value="">Selecciona un tamaño...</option>
+                            <!-- Opciones cargadas por JS -->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cake-flavor">3. Escoge el Sabor del Bizcocho:</label>
+                        <select id="cake-flavor" name="cake-flavor" required>
+                            <option value="">Selecciona un sabor...</option>
+                            <!-- Opciones cargadas por JS -->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cake-filling">4. Escoge el Relleno:</label>
+                        <select id="cake-filling" name="cake-filling" required>
+                            <option value="">Selecciona un relleno...</option>
+                            <!-- Opciones cargadas por JS -->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>5. ¿Quieres añadir un mensaje personalizado?</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="add-message" value="no" checked> No</label>
+                            <label><input type="radio" name="add-message" value="yes"> Sí</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="cake-message-group" style="display: none;">
+                        <label for="cake-message">Mensaje Personalizado (Ej: ¡Feliz Cumpleaños, Ana!):</label>
+                        <textarea id="cake-message" name="cake-message" placeholder="Escribe tu mensaje aquí..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>6. Decoración Adicional (Opcional):</label>
+                        <div id="cake-decorations" class="checkbox-group">
+                            <!-- Checkboxes predefinidos, podrían ser cargados por JS si fueran dinámicos -->
+                            <label><input type="checkbox" name="decorations" value="flores_naturales"> Flores Naturales</label>
+                            <label><input type="checkbox" name="decorations" value="topper_personalizado"> Topper Personalizado</label>
+                            <label><input type="checkbox" name="decorations" value="macarons"> Macarons</label>
+                            <label><input type="checkbox" name="decorations" value="frutas_extra"> Frutas Extra</label>
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <label for="cake-notes">Notas Adicionales o Referencias:</label>
+                        <textarea id="cake-notes" name="cake-notes" placeholder="Si tienes alguna idea específica, color, temática o referencia (ej: link a una imagen), por favor, indícalo aquí."></textarea>
+                    </div>
+
+                </form>
+
+                <aside class="order-summary" id="order-summary"> <!-- Esta clase ahora se estiliza desde tartas.css -->
+                    <h3>Resumen de Tu Tarta</h3>
+                    <p><strong>Estilo:</strong> <span id="summary-style">N/A</span></p>
+                    <p><strong>Tamaño:</strong> <span id="summary-size">N/A</span></p>
+                    <p><strong>Sabor:</strong> <span id="summary-flavor">N/A</span></p>
+                    <p><strong>Relleno:</strong> <span id="summary-filling">N/A</span></p>
+                    <p><strong>Mensaje:</strong> <span id="summary-message">No</span></p>
+                    <div id="summary-message-text-container" style="display:none;">
+                         <p style="padding-left:10px; font-style:italic;">"<span id="summary-message-text"></span>"</p>
+                    </div>
+                    <p><strong>Decoración Adicional:</strong></p>
+                    <ul id="summary-decorations">
+                        <li>Ninguna</li>
+                    </ul>
+                    <p><strong>Notas Adicionales:</strong> <span id="summary-notes">N/A</span></p>
+
+                    <button type="button" id="submit-cake-order" class="button button-primary submit-order-button">Solicitar Presupuesto por WhatsApp</button>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="tartas-personalizadas.html">Tartas</a></li>
+                    <li><a href="tablas-gourmet.html">Tablas</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
+                    <li><a href="terminos-condiciones.html">Términos y Condiciones</a></li>
+                </ul>
+            </nav>
+            <div class="footer-social">
+                <ul>
+                    <li><a href="https://instagram.com/boardsandcakes.es" target="_blank" aria-label="Instagram Boards & Cakes"><img src="images/instagram-icon.svg" alt="Instagram"></a></li>
+                </ul>
+            </div>
+            <p class="copyright">&copy; <span id="current-year">2024</span> Boards & Cakes. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script>
+        // Pequeño script para el año actual en el footer
+        // Asegurarse que el span exista antes de intentar modificarlo
+        const yearSpan = document.getElementById('current-year');
+        if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+        }
+    </script>
+    <script src="js/tartas.js"></script>
+
+    <a href="https://wa.me/34000000000" class="whatsapp-flotante" target="_blank" aria-label="Contactar por WhatsApp">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" class="whatsapp-icon">
+            <path fill="currentColor" d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447c-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335c-.143-.372-.214-.487-.6-.487c-.187 0-.36-.044-.53-.044c-.302 0-.53.115-.746.315c-.688.645-1.032 1.318-1.06 2.264c-.044 1.147.687 2.212.964 2.455c.276.246.552.515.93.82c.49.402 1.21.747 1.924 1.032c.817.329 1.5.329 1.924.426c.617.143 1.032.028 1.428-.387c.444-.444.652-.817.964-1.147c.214-.26.426-.24.6-.164c.174.08.943.444 1.187.56c.244.115.372.143.426.044c.056-.1.044-.402-.03-.66c-.073-.244-.187-.387-.357-.516c-.17-.128-.34-.143-.487-.143m-2.976 8.98c-3.33 0-6.033-2.703-6.033-6.032s2.703-6.032 6.033-6.032c3.329 0 6.032 2.703 6.032 6.032S19.46 26.185 16.134 26.185m0-13.265c-4.002 0-7.232 3.23-7.232 7.232s3.23 7.232 7.232 7.232c4.002 0 7.232-3.23 7.232-7.232S20.136 12.92 16.134 12.92m0-1.017c4.566 0 8.25 3.684 8.25 8.25S20.7 29.435 16.133 29.435S7.883 25.75 7.883 21.183s3.684-8.25 8.25-8.25Z"></path>
+        </svg>
+    </a>
+</body>
+</html>

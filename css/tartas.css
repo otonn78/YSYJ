@@ -1,0 +1,283 @@
+/* css/tartas.css - Estilos para la página de Tartas Personalizadas */
+
+/* --- Estilos del Encabezado de Página (Movidos de tartas-personalizadas.html) --- */
+.page-header {
+    background-color: var(--color-bg-secondary);
+    padding: calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 2); /* Añadido padding horizontal */
+    text-align: center;
+    margin-bottom: calc(var(--spacing-unit) * 4);
+    border-radius: 8px; /* Suavizar bordes */
+}
+
+.page-header h1 {
+    color: var(--color-text-main);
+    font-size: 2.8rem; /* Ligeramente más grande */
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--color-text-main); /* Asegurar buen contraste */
+    opacity: 0.9;
+}
+
+/* --- Galería de Estilos de Tarta (Movidos y Refinados) --- */
+.cake-styles-gallery {
+    display: grid; /* Usar grid para mejor control */
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Columnas responsivas */
+    gap: calc(var(--spacing-unit) * 3);
+    margin-bottom: calc(var(--spacing-unit) * 5); /* Más espacio inferior */
+}
+
+.cake-style-item {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Sombra más suave */
+    padding: calc(var(--spacing-unit) * 2);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer; /* Indicar que es clickeable */
+}
+
+.cake-style-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.cake-style-item img {
+    width: 100%;
+    height: 220px; /* Altura ligeramente mayor */
+    object-fit: cover;
+    border-radius: 6px; /* Bordes de imagen más suaves */
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+}
+
+.cake-style-item h3 {
+    font-size: 1.3rem; /* Título de estilo más grande */
+    margin-bottom: calc(var(--spacing-unit) * 0.75);
+    color: var(--color-accent-primary);
+}
+
+.cake-style-item p {
+    font-size: 0.9rem;
+    color: var(--color-text-main);
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+/* --- Área del Formulario de Personalización (Movidos y Refinados) --- */
+.customization-form-area {
+    display: flex;
+    flex-wrap: wrap; /* Mantener para responsividad */
+    gap: calc(var(--spacing-unit) * 4);
+    background-color: var(--color-white); /* Fondo para toda el área */
+    padding: calc(var(--spacing-unit) * 3);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+}
+
+.cake-form {
+    flex: 2; /* El formulario ocupa más espacio */
+    min-width: 300px; /* Ancho mínimo para evitar que se comprima demasiado */
+    /* Quitar fondo y padding si customization-form-area ya lo tiene */
+}
+
+.cake-form h2 {
+    text-align: center;
+    margin-bottom: calc(var(--spacing-unit) * 3.5); /* Más espacio */
+    font-size: 2.2rem; /* Título del formulario más grande */
+    color: var(--color-text-main);
+}
+
+.form-group {
+    margin-bottom: calc(var(--spacing-unit) * 2.5);
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: calc(var(--spacing-unit) * 1); /* Más espacio para la etiqueta */
+    color: var(--color-text-main);
+    font-size: 1rem;
+}
+
+.form-group select,
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group textarea {
+    width: 100%;
+    padding: calc(var(--spacing-unit) * 1.5); /* Padding más generoso */
+    border: 1px solid #ddd; /* Borde más sutil */
+    border-radius: 6px; /* Bordes más redondeados */
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group select:focus,
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group textarea:focus {
+    border-color: var(--color-accent-primary);
+    box-shadow: 0 0 0 3px rgba(var(--color-accent-primary-rgb, 176, 141, 87), 0.2); /* Añadir variable RGB para el color de acento */
+    outline: none;
+}
+
+/* Para usar var(--color-accent-primary-rgb) necesitaríamos definirlo en :root, ej: --color-accent-primary-rgb: 176, 141, 87; */
+/* Por ahora, usaré un valor fijo: */
+.form-group select:focus,
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group textarea:focus {
+    border-color: var(--color-accent-primary);
+    box-shadow: 0 0 0 3px rgba(176, 141, 87, 0.25);
+    outline: none;
+}
+
+
+.form-group textarea {
+    min-height: 120px; /* Más altura mínima */
+    resize: vertical;
+}
+
+.form-group .radio-group,
+.form-group .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-unit); /* Espacio entre opciones */
+}
+
+.form-group .radio-group label,
+.form-group .checkbox-group label {
+    font-weight: normal;
+    display: inline-flex;
+    align-items: center;
+    margin-right: var(--spacing-unit); /* Mantener espacio a la derecha */
+    padding: calc(var(--spacing-unit) * 0.75) var(--spacing-unit);
+    border: 1px solid #eee;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.form-group .radio-group label:hover,
+.form-group .checkbox-group label:hover {
+    background-color: #f9f9f9;
+}
+
+.form-group input[type="radio"],
+.form-group input[type="checkbox"] {
+    margin-right: calc(var(--spacing-unit) * 0.75);
+    accent-color: var(--color-accent-primary); /* Estilizar el color del tick/radio */
+}
+
+
+/* --- Resumen del Pedido (Movidos y Refinados) --- */
+.order-summary {
+    flex: 1; /* El resumen ocupa menos espacio */
+    background-color: var(--color-bg-main); /* Un fondo ligeramente diferente al área del form */
+    padding: calc(var(--spacing-unit) * 3);
+    border-radius: 8px;
+    border: 1px solid var(--color-bg-secondary); /* Borde sutil */
+    height: fit-content;
+    position: sticky;
+    top: 120px; /* Ajustar según altura del header sticky */
+    min-width: 280px; /* Ancho mínimo */
+}
+
+.order-summary h3 {
+    text-align: center;
+    border-bottom: 1px solid var(--color-accent-secondary);
+    padding-bottom: calc(var(--spacing-unit) * 1.5); /* Más padding */
+    margin-bottom: calc(var(--spacing-unit) * 2.5); /* Más espacio */
+    font-size: 1.6rem; /* Título más grande */
+    color: var(--color-accent-primary);
+}
+
+.order-summary p {
+    margin-bottom: calc(var(--spacing-unit) * 1.25); /* Ajustar espacio */
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.order-summary strong {
+    color: var(--color-text-main);
+    font-weight: 600;
+}
+
+.order-summary ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: var(--spacing-unit);
+}
+
+.order-summary ul li {
+    margin-bottom: calc(var(--spacing-unit) * 0.75);
+    font-size: 0.9rem;
+    padding-left: var(--spacing-unit);
+    position: relative;
+}
+.order-summary ul li::before { /* Pequeño bullet point */
+    content: "•";
+    color: var(--color-accent-primary);
+    position: absolute;
+    left: -2px;
+    top: -1px;
+}
+
+
+.order-summary #summary-message-text-container p {
+    background-color: var(--color-bg-secondary);
+    padding: var(--spacing-unit);
+    border-radius: 4px;
+    font-style: italic;
+    border-left: 3px solid var(--color-accent-primary);
+}
+
+
+.submit-order-button {
+    display: block;
+    width: 100%;
+    padding: calc(var(--spacing-unit) * 1.75);
+    margin-top: calc(var(--spacing-unit) * 3); /* Más espacio arriba */
+    font-size: 1.1rem; /* Botón más prominente */
+}
+
+/* --- Media Queries (Movidas y revisadas) --- */
+@media (max-width: 992px) {
+    .customization-form-area {
+        flex-direction: column;
+    }
+    .order-summary {
+        position: static; /* Quitar sticky */
+        width: 100%;
+        margin-top: calc(var(--spacing-unit) * 4); /* Más espacio si se apila */
+    }
+}
+
+@media (max-width: 768px) {
+    .page-header h1 { font-size: 2.2rem; }
+    .cake-form h2 { font-size: 1.8rem; }
+    .order-summary h3 { font-size: 1.4rem; }
+
+    .cake-styles-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Ajustar para pantallas medianas */
+    }
+}
+
+@media (max-width: 576px) {
+    .cake-styles-gallery {
+        grid-template-columns: 1fr; /* Una columna en móviles pequeños */
+    }
+    .form-group .radio-group,
+    .form-group .checkbox-group {
+        flex-direction: column; /* Apilar radios/checkboxes */
+        align-items: flex-start;
+    }
+    .form-group .radio-group label,
+    .form-group .checkbox-group label {
+        margin-right: 0; /* Quitar margen si están apilados */
+        width: 100%; /* Ocupar todo el ancho */
+    }
+}

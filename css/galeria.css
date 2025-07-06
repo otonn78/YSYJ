@@ -1,0 +1,184 @@
+/* css/galeria.css - Estilos para la página de Galería */
+
+.gallery-filters {
+    text-align: center;
+    margin-bottom: calc(var(--spacing-unit) * 4);
+}
+
+.filter-button {
+    background-color: var(--color-white);
+    color: var(--color-text-main);
+    border: 1px solid var(--color-accent-secondary);
+    padding: calc(var(--spacing-unit) * 1.25) calc(var(--spacing-unit) * 2.5);
+    margin: 0 calc(var(--spacing-unit) * 0.5);
+    border-radius: 20px; /* Botones más redondeados tipo "píldora" */
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.filter-button:hover {
+    background-color: var(--color-bg-secondary);
+    border-color: var(--color-accent-primary);
+    transform: translateY(-2px);
+}
+
+.filter-button.active {
+    background-color: var(--color-accent-primary);
+    color: var(--color-white);
+    border-color: var(--color-accent-primary);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Columnas responsivas */
+    gap: calc(var(--spacing-unit) * 3);
+}
+
+.gallery-item {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    overflow: hidden; /* Para que la imagen no se salga del borde redondeado */
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px; /* Altura fija para las imágenes de la galería */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1); /* Ligero zoom a la imagen al hacer hover en el item */
+}
+
+.gallery-item-info {
+    padding: calc(var(--spacing-unit) * 2);
+    text-align: center;
+}
+
+.gallery-item-info h3 {
+    font-family: var(--font-primary);
+    font-size: 1.2rem;
+    color: var(--color-text-main);
+    margin-bottom: calc(var(--spacing-unit) * 0.5);
+}
+
+.gallery-item-info p {
+    font-family: var(--font-secondary);
+    font-size: 0.85rem;
+    color: var(--color-accent-secondary);
+    margin-bottom: 0;
+}
+
+/* Estilos para el Lightbox Modal (opcional, básico) */
+.lightbox-modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1001; /* Por encima del header sticky */
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9); /* Fondo oscuro semitransparente */
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    max-height: 80vh; /* Limitar altura máxima */
+    animation-name: lightboxZoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes lightboxZoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+    color: #bbb;
+    text-decoration: none;
+}
+
+#lightbox-caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 50px; /* Espacio para el caption */
+    font-family: var(--font-secondary);
+}
+
+/* Animación para mostrar/ocultar items de galería (opcional, para filtros) */
+.gallery-item.hide {
+    display: none; /* Ocultar items que no coinciden con el filtro */
+}
+
+.gallery-item.show {
+    display: block; /* Mostrar items que coinciden */
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Responsive para la galería */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .filter-button {
+        padding: calc(var(--spacing-unit) * 1) calc(var(--spacing-unit) * 2);
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Una columna en móviles muy pequeños */
+        gap: calc(var(--spacing-unit) * 2.5);
+    }
+     .gallery-filters {
+        display: flex;
+        flex-direction: column; /* Apilar filtros */
+        gap: var(--spacing-unit);
+    }
+    .filter-button {
+        width: 100%;
+        margin: 0;
+    }
+}

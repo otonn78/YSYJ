@@ -258,3 +258,50 @@ a:hover, a:focus {
         padding: calc(var(--spacing-unit) * 6) calc(var(--spacing-unit) * 2); /* Add horizontal padding for smaller screens */
     }
 }
+
+/* --- Botón Flotante de WhatsApp --- */
+.whatsapp-flotante {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366; /* Color oficial de WhatsApp */
+    color: var(--color-white);
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px; /* Tamaño del icono si fuera una fuente */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 1000; /* Asegurar que esté por encima de otros elementos */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* Quitar subrayado del enlace */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.whatsapp-flotante:hover {
+    transform: scale(1.1);
+    background-color: #1DAE50; /* Un verde ligeramente más oscuro al hacer hover */
+    color: var(--color-white); /* Mantener color del icono */
+}
+
+.whatsapp-flotante .whatsapp-icon {
+    width: 32px; /* Ajustar tamaño del SVG */
+    height: 32px;
+    fill: var(--color-white); /* Color del SVG */
+}
+
+/* Media query para ajustar tamaño en móviles pequeños */
+@media (max-width: 576px) {
+    .whatsapp-flotante {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+    .whatsapp-flotante .whatsapp-icon {
+        width: 28px;
+        height: 28px;
+    }
+}

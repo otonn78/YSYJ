@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto y Pedidos - Boards & Cakes</title>
+    <meta name="description" content="Contacta con nosotros para tus pedidos de tartas personalizadas, tablas gourmet o cualquier consulta. Estamos aquí para ayudarte.">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/contacto.css"> <!-- CSS específico para Contacto -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="logo">Boards & Cakes</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="tartas-personalizadas.html">Tartas Personalizadas</a></li>
+                    <li><a href="tablas-gourmet.html">Tablas Gourmet</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="preguntas-frecuentes.html">FAQs</a></li>
+                    <li><a href="contacto.html" class="active">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header" style="background-color: var(--color-bg-secondary); padding: calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 2); text-align: center; margin-bottom: calc(var(--spacing-unit) * 4); border-radius: 8px;">
+            <div class="container">
+                <h1>Contacto y Pedidos</h1>
+                <p>¿Listo para encargar tu tarta o tabla gourmet? ¿Tienes alguna pregunta o idea especial? Estamos aquí para escucharte. <br>Completa el formulario o contáctanos directamente.</p>
+            </div>
+        </section>
+
+        <section class="container section-padding">
+            <div class="contact-layout">
+                <div class="contact-form-container">
+                    <h2>Envíanos un Mensaje</h2>
+                    <form id="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST"> <!-- Action para Formspree, o quitar para JS puro -->
+                        <div class="form-group">
+                            <label for="name">Nombre Completo <span class="required-asterisk">*</span></label>
+                            <input type="text" id="name" name="name" required placeholder="Tu nombre y apellidos">
+                            <small class="form-error-message"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico <span class="required-asterisk">*</span></label>
+                            <input type="email" id="email" name="email" required placeholder="tuemail@ejemplo.com">
+                            <small class="form-error-message"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono (Opcional)</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+34 000 000 000">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Asunto <span class="required-asterisk">*</span></label>
+                            <input type="text" id="subject" name="subject" required placeholder="Ej: Pedido Tarta Cumpleaños, Consulta Tabla Gourmet">
+                            <small class="form-error-message"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje <span class="required-asterisk">*</span></label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Cuéntanos sobre tu evento, el tipo de producto que te interesa, número de invitados, fecha deseada, y cualquier detalle especial..."></textarea>
+                            <small class="form-error-message"></small>
+                        </div>
+                        <button type="submit" class="button button-primary" id="submit-contact-form">Enviar Mensaje</button>
+                        <div id="form-status-message"></div>
+                    </form>
+                </div>
+
+                <aside class="contact-info-container">
+                    <h2>Información de Contacto</h2>
+                    <p>Si prefieres, también puedes contactarnos directamente:</p>
+                    <ul>
+                        <li><strong>Teléfono / WhatsApp:</strong> <a href="tel:+34000000000">+34 000 000 000</a> (Placeholder)</li>
+                        <li><strong>Email:</strong> <a href="mailto:pedidos@boardsandcakes.es">pedidos@boardsandcakes.es</a> (Placeholder)</li>
+                        <li><strong>Instagram:</strong> <a href="https://instagram.com/boardsandcakes.es" target="_blank">@boardsandcakes.es</a></li>
+                    </ul>
+                    <p><strong>Horario de Atención:</strong><br>
+                    Lunes a Viernes: 10:00 - 18:00<br>
+                    Sábados: 10:00 - 14:00 (solo para recogidas programadas)</p>
+
+                    <!-- Placeholder para Mapa -->
+                    <div class="map-placeholder" style="margin-top: 20px; background-color: #f0f0f0; border:1px solid #ccc; text-align:center; padding:50px 20px; border-radius: 8px;">
+                        <p style="margin:0; color:#555;"><i>Aquí iría un mapa embebido de Google Maps<br>(si aplica una ubicación física para recogidas)</i></p>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <nav class="footer-nav">
+                 <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="tartas-personalizadas.html">Tartas</a></li>
+                    <li><a href="tablas-gourmet.html">Tablas</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
+                    <li><a href="terminos-condiciones.html">Términos y Condiciones</a></li>
+                </ul>
+            </nav>
+            <div class="footer-social">
+                <ul>
+                    <li><a href="https://instagram.com/boardsandcakes.es" target="_blank" aria-label="Instagram Boards & Cakes"><img src="images/instagram-icon.svg" alt="Instagram"></a></li>
+                </ul>
+            </div>
+            <p class="copyright">&copy; <span id="current-year">2024</span> Boards & Cakes. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script>
+        const yearSpan = document.getElementById('current-year');
+        if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+        }
+    </script>
+    <script src="js/contacto.js"></script>
+
+    <a href="https://wa.me/34000000000" class="whatsapp-flotante" target="_blank" aria-label="Contactar por WhatsApp">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" class="whatsapp-icon">
+            <path fill="currentColor" d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447c-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335c-.143-.372-.214-.487-.6-.487c-.187 0-.36-.044-.53-.044c-.302 0-.53.115-.746.315c-.688.645-1.032 1.318-1.06 2.264c-.044 1.147.687 2.212.964 2.455c.276.246.552.515.93.82c.49.402 1.21.747 1.924 1.032c.817.329 1.5.329 1.924.426c.617.143 1.032.028 1.428-.387c.444-.444.652-.817.964-1.147c.214-.26.426-.24.6-.164c.174.08.943.444 1.187.56c.244.115.372.143.426.044c.056-.1.044-.402-.03-.66c-.073-.244-.187-.387-.357-.516c-.17-.128-.34-.143-.487-.143m-2.976 8.98c-3.33 0-6.033-2.703-6.033-6.032s2.703-6.032 6.033-6.032c3.329 0 6.032 2.703 6.032 6.032S19.46 26.185 16.134 26.185m0-13.265c-4.002 0-7.232 3.23-7.232 7.232s3.23 7.232 7.232 7.232c4.002 0 7.232-3.23 7.232-7.232S20.136 12.92 16.134 12.92m0-1.017c4.566 0 8.25 3.684 8.25 8.25S20.7 29.435 16.133 29.435S7.883 25.75 7.883 21.183s3.684-8.25 8.25-8.25Z"></path>
+        </svg>
+    </a>
+</body>
+</html>
